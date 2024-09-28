@@ -4,7 +4,7 @@ import { Menu as UIMenu, footerLinks } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 
 import { NetworkSwitcher } from 'components/NetworkSwitcher'
-import PhishingWarningBanner from 'components/PhishingWarningBanner'
+// import PhishingWarningBanner from 'components/PhishingWarningBanner'
 import { useCakePrice } from 'hooks/useStablePrice'
 import orderBy from 'lodash/orderBy'
 import { useTheme } from 'next-themes'
@@ -81,7 +81,7 @@ export const Menu = (props) => {
           links={menuItems}
           activeItem={activeMenuItem?.href}
           isDark={isDark}
-          banner={show ? <PhishingWarningBanner /> : undefined}
+          // banner={show ? <PhishingWarningBanner /> : undefined}
           rightSide={
             <>
               <SettingsButton mr="8px" />

@@ -2,7 +2,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Box, Flex, PageSection, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import useTheme from 'hooks/useTheme'
 import { styled } from 'styled-components'
-import MultipleBanner from './components/Banners/MultipleBanner'
+// import MultipleBanner from './components/Banners/MultipleBanner'
 import CakeDataRow from './components/CakeDataRow'
 import CakeSection from './components/CakeSection'
 import CommunitySection from './components/CommunitySection'
@@ -79,7 +79,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <MultipleBanner />
+        {/* <MultipleBanner /> */}
         <Hero />
       </StyledHeroSection>
       <PageSection
