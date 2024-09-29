@@ -15,5 +15,6 @@ declare global {
   const BASE_NODE: string
   const OPBNB_NODE: string
   const OPBNB_TESTNET_NODE: string
+  const CROSSFI_TESTNET_NODE: string
   const NODE_REAL_SUBGRAPH_API_KEY: string
 }

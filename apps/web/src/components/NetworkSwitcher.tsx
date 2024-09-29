@@ -158,6 +158,7 @@ const SHORT_SYMBOL = {
   [ChainId.BASE]: 'Base',
   [ChainId.BASE_TESTNET]: 'tBase',
   [ChainId.SCROLL_SEPOLIA]: 'tScroll',
+  [ChainId.CROSSFI_TESTNET]: 'CrossFiTestnet',
 } as const satisfies Record<ChainId, string>
 
 export const NetworkSwitcher = () => {
@@ -193,7 +194,9 @@ export const NetworkSwitcher = () => {
         mr="8px"
         placement="bottom"
         variant={isLoading ? 'pending' : isWrongNetwork ? 'danger' : 'default'}
-        avatarSrc={`${ASSET_CDN}/web/chains/${chainId}.png`}
+        avatarSrc={
+          chainId === 4157 ? 'https://crossfi.org/src/assets/img/logo.svg' : `${ASSET_CDN}/web/chains/${chainId}.png`
+        }
         disabled={cannotChangeNetwork}
         text={
           isLoading ? (

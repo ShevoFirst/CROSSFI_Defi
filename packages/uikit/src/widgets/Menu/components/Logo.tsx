@@ -46,7 +46,7 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
-      <img src="https://meta.crossfigod.io/media/LogoGoldDex.png" height="56px" width="210px" alt="" />
+      <img src="https://meta.crossfigod.io/media/LogoGoldDefi.png" height="56px" width="210px" alt="" />
     </>
   );
 

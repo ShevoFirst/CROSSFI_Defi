@@ -68,7 +68,6 @@ export const L2_CHAIN_IDS: ChainId[] = [
   ChainId.OPBNB,
   ChainId.OPBNB_TESTNET,
 ]
-
 export const CHAINS = [
   bsc,
   mainnet,

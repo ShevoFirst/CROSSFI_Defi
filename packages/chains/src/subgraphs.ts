@@ -6,7 +6,7 @@ type SubgraphParams = {
 
 const publicSubgraphParams = {
   // Public key for nodereal subgraph endpoint
-  noderealApiKey: '19bd2b3f75c24e23bb8a0e9d4f55b271',
+  noderealApiKey: 'b011e133e1e83e32507106d671e9a8dd',
 }
 
 export const V3_SUBGRAPHS = getV3Subgraphs(publicSubgraphParams)
@@ -40,6 +40,7 @@ export function getV3Subgraphs({ noderealApiKey }: SubgraphParams) {
     [ChainId.OPBNB]: `https://open-platform-ap.nodereal.io/${noderealApiKey}/opbnb-mainnet-graph-query/subgraphs/name/pancakeswap/exchange-v3`,
     [ChainId.OPBNB_TESTNET]: null,
     [ChainId.SCROLL_SEPOLIA]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-scroll-sepolia/version/latest',
+    [ChainId.CROSSFI_TESTNET]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-scroll-sepolia/version/latest',
   } satisfies Record<ChainId, string | null>
 }
 

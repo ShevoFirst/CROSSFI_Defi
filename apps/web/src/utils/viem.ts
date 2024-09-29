@@ -9,12 +9,19 @@ export type CreatePublicClientParams = {
 
 export function createViemPublicClients({ transportSignal }: CreatePublicClientParams = {}) {
   return CHAINS.reduce((prev, cur) => {
+    // Проверка на существование публичных узлов
+    const urls = PUBLIC_NODES[cur.id]
+    if (!urls) {
+      console.warn(`No public nodes found for chain ID: ${cur.id}`)
+      return prev // Или выберите другое действие, если узлы отсутствуют
+    }
+
     return {
       ...prev,
       [cur.id]: createPublicClient({
         chain: cur,
         transport: fallback(
-          (PUBLIC_NODES[cur.id] as string[]).map((url) =>
+          urls.map((url) =>
             http(url, {
               timeout: 10_000,
               fetchOptions: {

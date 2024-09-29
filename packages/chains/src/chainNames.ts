@@ -18,7 +18,7 @@ export const chainNames: Record<ChainId, string> = {
   [ChainId.BASE]: 'base',
   [ChainId.BASE_TESTNET]: 'baseTestnet',
   [ChainId.SCROLL_SEPOLIA]: 'scrollSepolia',
-  // [ChainId.CROSSFI_TESTNET]: 'crossFi testnet',
+  [ChainId.CROSSFI_TESTNET]: 'crossFiTestnet',
 }
 
 export const chainNameToChainId = Object.entries(chainNames).reduce((acc, [chainId, chainName]) => {
@@ -48,5 +48,5 @@ export const defiLlamaChainNames: Record<ChainId, string> = {
   [ChainId.SCROLL_SEPOLIA]: '',
   [ChainId.LINEA]: 'linea',
   [ChainId.BASE]: 'base',
-  // [ChainId.CROSSFI_TESTNET]: '',
+  [ChainId.CROSSFI_TESTNET]: '',
 }

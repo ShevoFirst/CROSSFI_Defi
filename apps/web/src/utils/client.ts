@@ -1,32 +1,34 @@
-import { CHAINS } from 'config/chains'
-import { PUBLIC_NODES } from 'config/nodes'
+import { CHAINS } from 'config/chains' // Ваши исходные цепи
+import { PUBLIC_NODES } from 'config/nodes' // Ваши публичные узлы
 import { configureChains } from 'wagmi'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { mainnet } from 'wagmi/chains'
+import { crossfi } from './customChains' // Импортируйте вашу пользовательскую цепь
 
-// get most configs chain nodes length
 const mostNodesConfig = Object.values(PUBLIC_NODES).reduce((prev, cur) => {
   return cur.length > prev ? cur.length : prev
 }, 0)
 
 export const { publicClient, chains } = configureChains(
-  CHAINS,
-  Array.from({ length: mostNodesConfig })
-    .map((_, i) => i)
-    .map((i) => {
-      return jsonRpcProvider({
-        rpc: (chain) => {
-          if (process.env.NODE_ENV === 'test' && chain.id === mainnet.id && i === 0) {
-            return { http: 'https://ethereum.publicnode.com' }
+  [...CHAINS, crossfi], // Используйте обновленный массив с вашей цепью
+  Array.from({ length: mostNodesConfig }).map((_, i) => {
+    return jsonRpcProvider({
+      rpc: (chain) => {
+        if (process.env.NODE_ENV === 'test' && chain.id === mainnet.id && i === 0) {
+          return { http: 'https://ethereum.publicnode.com' }
+        }
+
+        // Добавьте условие для обработки CrossFi Testnet
+        if (chain.id === crossfi.id) {
+          return {
+            http: crossfi.rpcUrls.public.http[0], // Убедитесь, что используете правильный RPC URL
           }
-          return PUBLIC_NODES[chain.id]?.[i]
-            ? {
-                http: PUBLIC_NODES[chain.id][i],
-              }
-            : null
-        },
-      })
-    }),
+        }
+
+        return PUBLIC_NODES[chain.id]?.[i] ? { http: PUBLIC_NODES[chain.id][i] } : null
+      },
+    })
+  }),
   {
     batch: {
       multicall: {
