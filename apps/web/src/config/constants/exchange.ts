@@ -1,4 +1,4 @@
-import { Percent, Token, WNATIVE } from '@pancakeswap/sdk'
+import { Percent, Token, WNATIVE, WETH9, ERC20Token } from '@pancakeswap/sdk'
 import { ChainId } from '@pancakeswap/chains'
 import {
   bscTokens,
@@ -23,6 +23,11 @@ import {
 } from '@pancakeswap/tokens'
 import { ChainTokenList } from './types'
 
+export const crossfiTestnetTokens = {
+  weth: WETH9[ChainId.CROSSFI_TESTNET],
+  usdc: USDC[ChainId.CROSSFI_TESTNET],
+  mockA: new ERC20Token(ChainId.CROSSFI_TESTNET, '0x74f4b6c7f7f518202231b58ce6e8736df6b50a81', 18, 'A', 'Mock A'),
+}
 export {
   ADDITIONAL_BASES,
   V2_ROUTER_ADDRESS,
@@ -48,6 +53,7 @@ export const CHAIN_REFRESH_TIME = {
   [ChainId.BASE]: 6_000,
   [ChainId.BASE_TESTNET]: 6_000,
   [ChainId.SCROLL_SEPOLIA]: 6_000,
+  [ChainId.CROSSFI_TESTNET]: 6_000,
 } as const satisfies Record<ChainId, number>
 
 // used for display in the default list when adding liquidity
@@ -74,6 +80,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BASE]: [baseTokens.usdc, baseTokens.weth],
   [ChainId.BASE_TESTNET]: [baseTestnetTokens.usdc, baseTestnetTokens.weth],
   [ChainId.SCROLL_SEPOLIA]: [scrollSepoliaTokens.usdc, scrollSepoliaTokens.weth],
+  [ChainId.CROSSFI_TESTNET]: [crossfiTestnetTokens.usdc, crossfiTestnetTokens.weth],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -95,6 +102,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.BASE]: [baseTokens.usdc, baseTokens.weth],
   [ChainId.BASE_TESTNET]: [baseTestnetTokens.usdc, baseTestnetTokens.weth],
   [ChainId.SCROLL_SEPOLIA]: [scrollSepoliaTokens.usdc, scrollSepoliaTokens.weth],
+  [ChainId.CROSSFI_TESTNET]: [crossfiTestnetTokens.usdc, crossfiTestnetTokens.weth],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

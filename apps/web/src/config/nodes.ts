@@ -15,6 +15,7 @@ import {
   zkSync,
   zkSyncTestnet,
 } from 'wagmi/chains'
+import { crossfi } from '../utils/customChains' // Импортируйте вашу пользовательскую цепь
 
 const ARBITRUM_NODES = [
   ...arbitrum.rpcUrls.public.http,
@@ -76,6 +77,7 @@ export const SERVER_NODES = {
   ],
   [ChainId.BASE_TESTNET]: baseGoerli.rpcUrls.public.http,
   [ChainId.SCROLL_SEPOLIA]: scrollSepolia.rpcUrls.public.http,
+  [ChainId.CROSSFI_TESTNET]: scrollSepolia.rpcUrls.public.http,
 } satisfies Record<ChainId, readonly string[]>
 
 export const PUBLIC_NODES = {
@@ -145,4 +147,5 @@ export const PUBLIC_NODES = {
   ].filter(Boolean),
   [ChainId.BASE_TESTNET]: baseGoerli.rpcUrls.public.http,
   [ChainId.SCROLL_SEPOLIA]: scrollSepolia.rpcUrls.public.http,
+  [ChainId.CROSSFI_TESTNET]: crossfi.rpcUrls.public.http,
 } satisfies Record<ChainId, readonly string[]>

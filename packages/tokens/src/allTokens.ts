@@ -17,6 +17,7 @@ import { opBnbTestnetTokens } from './constants/opBnbTestnet'
 import { baseTokens } from './constants/base'
 import { baseTestnetTokens } from './constants/baseTestnet'
 import { scrollSepoliaTokens } from './constants/scrollSepolia'
+import { crossfiTestnetTokens } from './constants/crossfiTestnet'
 
 export const allTokens = {
   [ChainId.GOERLI]: goerliTestnetTokens,
@@ -36,4 +37,5 @@ export const allTokens = {
   [ChainId.BASE]: baseTokens,
   [ChainId.BASE_TESTNET]: baseTestnetTokens,
   [ChainId.SCROLL_SEPOLIA]: scrollSepoliaTokens,
+  [ChainId.CROSSFI_TESTNET]: crossfiTestnetTokens,
 }

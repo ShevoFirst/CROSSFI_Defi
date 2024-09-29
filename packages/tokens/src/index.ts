@@ -1,3 +1,4 @@
+export * from './constants/crossfiTestnet'
 export * from './constants/common'
 export * from './helpers'
 export * from './constants/goerli'

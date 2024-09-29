@@ -130,6 +130,14 @@ export const CAKE = {
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),
+  [ChainId.CROSSFI_TESTNET]: new ERC20Token(
+    ChainId.ETHEREUM,
+    '0x69756e7acbb10a486b7fd4482efdf55c69482318',
+    18,
+    'CAKE',
+    'PancakeSwap Token',
+    'https://pancakeswap.finance/',
+  ),
   [ChainId.GOERLI]: new ERC20Token(
     ChainId.GOERLI,
     '0xc2C3eAbE0368a2Ea97f485b03D1098cdD7d0c081',
@@ -302,6 +310,13 @@ export const USDC = {
     'USDC',
     'USD Coin',
   ),
+  [ChainId.CROSSFI_TESTNET]: new ERC20Token(
+    ChainId.CROSSFI_TESTNET,
+    '0x02a3e7E0480B668bD46b42852C58363F93e3bA5C',
+    6,
+    'USDC',
+    'USD Coin',
+  ),
 }
 
 export const USDT = {
@@ -378,4 +393,5 @@ export const STABLE_COIN = {
   [ChainId.BASE]: USDC[ChainId.BASE],
   [ChainId.BASE_TESTNET]: USDC[ChainId.BASE_TESTNET],
   [ChainId.SCROLL_SEPOLIA]: USDC[ChainId.SCROLL_SEPOLIA],
+  [ChainId.CROSSFI_TESTNET]: USDC[ChainId.CROSSFI_TESTNET],
 } satisfies Record<ChainId, ERC20Token>
